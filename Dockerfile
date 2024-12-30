@@ -2,7 +2,7 @@ FROM --platform=linux/amd64 node:18.20-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json .env ./
-RUN npm install --frozen-lockfile
+RUN npm install --force
 
 FROM --platform=linux/amd64 node:18.20-alpine AS builder
 WORKDIR /app
