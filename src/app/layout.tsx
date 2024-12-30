@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 
 const loginPath = "/login";
 const dashboardPath = "/dashboard";
+const apiDoc = "/api-doc";
 
 export default function RootLayout({
   children, // will be a page or nested layout
@@ -19,7 +20,9 @@ export default function RootLayout({
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if (pathName != loginPath && !user) {
+      if(pathName === apiDoc) {
+
+      } else if (pathName != loginPath && !user) {
         redirect(loginPath);
       } else if (pathName === loginPath && user) {
         redirect(dashboardPath);

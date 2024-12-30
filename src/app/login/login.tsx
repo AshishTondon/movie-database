@@ -15,7 +15,8 @@ import { IWithClassName } from "@/app/theme/default";
 import loginSchema from "@/app/common/validation/login";
 import React, { useState, ChangeEvent } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/app/common/firebase-config"; // Make sure to export your Firebase config
+import { auth } from "@/app/common/firebase-config"; 
+import SquareIcon from '@mui/icons-material/Square';
 
 enum Label {
   email = "email",
@@ -119,7 +120,7 @@ const Login = ({ className }: IWithClassName) => {
       </FormControl>
       <FormControl className="remember-me-cont">
         <FormControlLabel
-          control={<Checkbox onChange={onChangeText(Label.rememberMe)} />}
+          control={<Checkbox onChange={onChangeText(Label.rememberMe)} icon={<SquareIcon className="uncheckbox-icon"/>}/>}
           label="Remember Me"
         />
       </FormControl>
@@ -130,7 +131,7 @@ const Login = ({ className }: IWithClassName) => {
   );
 };
 
-export default styled(Login)(() => ({
+export default styled(Login)(({theme}) => ({
   width: "40%",
   minWidth: 200,
   textAlign: "center",
@@ -153,4 +154,7 @@ export default styled(Login)(() => ({
       width: "inherit",
     },
   },
+  ".uncheckbox-icon": {
+    fill: theme.palette.background.paper,
+  }
 }));
