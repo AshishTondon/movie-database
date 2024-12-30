@@ -20,7 +20,7 @@ export const lightTheme: Theme = createTheme({
       main: COLORS.primary,
     },
     error: {
-      main: COLORS.error
+      main: COLORS.error,
     },
     text: {
       primary: "#fff",
@@ -31,8 +31,8 @@ export const lightTheme: Theme = createTheme({
       styleOverrides: {
         root: {
           color: "#fff",
-        }
-      }
+        },
+      },
     },
     MuiOutlinedInput: {
       styleOverrides: {
@@ -43,8 +43,8 @@ export const lightTheme: Theme = createTheme({
         },
       },
       defaultProps: {
-        size: "small"
-      }
+        size: "small",
+      },
     },
     MuiButton: {
       styleOverrides: {
@@ -52,49 +52,49 @@ export const lightTheme: Theme = createTheme({
           color: "#fff",
           textTransform: "none",
           fontWeight: "bold",
-        }
+        },
       },
       defaultProps: {
-        variant: "contained"
-      }
+        variant: "contained",
+      },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundColor: "#092C39",
-        }
-      }
+        },
+      },
     },
     MuiCard: {
       styleOverrides: {
         root: {
           borderRadius: 10,
-        }
-      }
+        },
+      },
     },
     MuiCardMedia: {
       styleOverrides: {
         root: {
           padding: 10,
           borderRadius: 20,
-        }
-      }
+        },
+      },
     },
     MuiCardContent: {
       styleOverrides: {
         root: {
-          textAlign: "left"
-        }
-      }
+          textAlign: "left",
+        },
+      },
     },
     MuiIconButton: {
       styleOverrides: {
         root: {
           color: "#fff",
-        }
-      }
-    }
-  }
+        },
+      },
+    },
+  },
 } as MyTheme);
 
 export interface IWithThemeProps {
@@ -104,4 +104,3 @@ export interface IWithThemeProps {
 export interface IWithClassName {
   className?: string;
 }
-

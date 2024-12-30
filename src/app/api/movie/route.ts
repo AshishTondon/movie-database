@@ -6,7 +6,7 @@ import deleteImage from "@/app/controller/delete-movie";
 
 /**
  * @swagger
- * 
+ *
  * /api/movie:
  *   get:
  *     tags:
@@ -39,17 +39,17 @@ import deleteImage from "@/app/controller/delete-movie";
  *                                      id:
  *                                          type: string
  *                          nextPage:
- *                              type: string   
+ *                              type: string
  */
 export const GET = (request: NextRequest) => {
-    const page = request.nextUrl.searchParams.get("page");
+  const page = request.nextUrl.searchParams.get("page");
 
-    return getMovieList(page);
-}
+  return getMovieList(page);
+};
 
 /**
  * @swagger
- * 
+ *
  * /api/movie:
  *   post:
  *     tags:
@@ -84,13 +84,13 @@ export const GET = (request: NextRequest) => {
  *                          public_id:
  *                              type: string
  *                          url:
- *                              type: string   
+ *                              type: string
  */
 export const POST = (request: NextRequest) => upload(request);
 
 /**
  * @swagger
- * 
+ *
  * /api/movie:
  *   put:
  *     tags:
@@ -123,13 +123,13 @@ export const POST = (request: NextRequest) => upload(request);
  *                          public_id:
  *                              type: string
  *                          url:
- *                              type: string   
+ *                              type: string
  */
 export const PUT = (request: NextRequest) => editMovie(request);
 
 /**
  * @swagger
- * 
+ *
  * /api/movie:
  *   delete:
  *     tags:
@@ -151,10 +151,10 @@ export const PUT = (request: NextRequest) => editMovie(request);
  *                          public_id:
  *                              type: string
  *                          url:
- *                              type: string   
+ *                              type: string
  */
 export const DELETE = (request: NextRequest) => {
-    const id = request.nextUrl.searchParams.get("id") ?? "";
+  const id = request.nextUrl.searchParams.get("id") ?? "";
 
-    return deleteImage(id)
+  return deleteImage(id);
 };

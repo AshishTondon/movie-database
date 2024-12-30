@@ -1,6 +1,6 @@
 export interface IObject<T> {
-    [key: string]: T;
-  }
+  [key: string]: T;
+}
 
 interface IRequest<R> {
   method: "GET" | "POST" | "PUT" | "DELETE";

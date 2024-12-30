@@ -19,9 +19,9 @@ export default function RootLayout({
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      if(pathName != loginPath && !user) {
+      if (pathName != loginPath && !user) {
         redirect(loginPath);
-      } else if(pathName === loginPath && user){
+      } else if (pathName === loginPath && user) {
         redirect(dashboardPath);
       }
     });
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-          <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
