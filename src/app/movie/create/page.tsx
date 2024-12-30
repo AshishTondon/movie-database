@@ -1,5 +1,3 @@
-"use client";
-
 import MovieCreate from "../form";
 import React from "react";
 

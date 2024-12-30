@@ -90,7 +90,6 @@ const MovieForm = ({ className, header, title, year, id, url }: IProps) => {
   });
 
   useEffect(() => {
-    console.log("id", id);
     if (id) {
       setmovieTitle(title);
       setMovieYear(year);
@@ -99,7 +98,6 @@ const MovieForm = ({ className, header, title, year, id, url }: IProps) => {
   }, [title, year, url, id]);
 
   const display = (isDragActive: boolean) => {
-    console.log("moviePoster", moviePoster);
     if (moviePoster) {
       return (
         <img
