@@ -9,6 +9,7 @@ import {
   Checkbox,
   FormControl,
   FormControlLabel,
+  CircularProgress,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { IWithClassName } from "@/app/theme/default";
@@ -28,6 +29,7 @@ const Login = ({ className }: IWithClassName) => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [rememberMe, setRememberMe] = useState(false);
+  const [isLoading, setLoader] = useState(false);
 
   const router = useRouter();
 
@@ -68,6 +70,8 @@ const Login = ({ className }: IWithClassName) => {
         [context?.label ?? Label.email]: message,
       }));
     } else if (email && password) {
+      setLoader(true);
+
       signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
           if (res) {
@@ -91,7 +95,7 @@ const Login = ({ className }: IWithClassName) => {
           setError({ email: "Invalid email or password", password: null });
         })
         .finally(() => {
-          // setLoading(false);
+          setLoader(false);
         });
     }
   };
@@ -118,14 +122,18 @@ const Login = ({ className }: IWithClassName) => {
           helperText={error.password}
         />
       </FormControl>
-      <FormControl className="remember-me-cont">
+      <FormControl className="center-cont">
         <FormControlLabel
           control={<Checkbox onChange={onChangeText(Label.rememberMe)} icon={<SquareIcon className="uncheckbox-icon"/>}/>}
           label="Remember Me"
         />
       </FormControl>
-      <FormControl>
-        <Button onClick={validate}>Login</Button>
+      <FormControl className="center-cont">
+        {isLoading ? 
+          <CircularProgress /> : 
+          <Button onClick={validate}>
+            Login
+          </Button>}
       </FormControl>
     </Container>
   );
@@ -142,7 +150,7 @@ export default styled(Login)(({theme}) => ({
   gap: 20,
   height: "inherit",
   justifyContent: "center",
-  ".remember-me-cont": {
+  ".center-cont": {
     alignItems: "center",
   },
   ".MuiFormControl-root": {
